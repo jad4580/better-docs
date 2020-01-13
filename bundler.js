@@ -22,6 +22,8 @@ module.exports = function bundle (Components, out, config) {
       import Vue from 'vue/dist/vue.js';\n
       window.Vue = Vue;\n
 
+      console.log(__dirname);
+      console.log(VUE_WRAPPER);
       import VueWrapper from '${path.relative(absoluteOut, path.join(__dirname, VUE_WRAPPER)).replace(/\\/g, "/")}';\n
       window.VueWrapper = VueWrapper;\n
     `
