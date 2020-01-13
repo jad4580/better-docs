@@ -63,7 +63,7 @@ module.exports = function bundle (Components, out, config) {
     const relativePath = path.relative(absoluteOut, filePath)
     const name = `Component${i}`
     return [
-      `import ${name} from '${relativePath.replace("/", /\\/g)}';`,
+      `import ${name} from '${relativePath.replace(/\\/g, "/")}';`,
       `${type}Components['${displayName}'] = ${name};`,
     ].join('\n')
   }).join('\n\n')
