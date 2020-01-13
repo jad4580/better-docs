@@ -17,13 +17,14 @@ module.exports = function bundle (Components, out, config) {
     window.reactComponents = {};\n
     window.vueComponents = {};\n
   `
+  
+  console.log(__dirname);
+      console.log(VUE_WRAPPER);
   if (vueComponents.length) {
     init = init + `
       import Vue from 'vue/dist/vue.js';\n
       window.Vue = Vue;\n
 
-      console.log(__dirname);
-      console.log(VUE_WRAPPER);
       import VueWrapper from '${path.relative(absoluteOut, path.join(__dirname, VUE_WRAPPER)).replace(/\\/g, "/")}';\n
       window.VueWrapper = VueWrapper;\n
     `
