@@ -68,9 +68,9 @@ module.exports = function bundle (Components, out, config) {
     ].join('\n')
   }).join('\n\n')
   
-  console.log(__dirname);
-  console.log(VUE_WRAPPER);
-  
+  console.log('REACHED')
+  console.log(__dirname)
+  console.log(VUE_WRAPPER)
   console.log('Generating entry file for "components" plugin')
   fs.writeFileSync(entry, entryFile)
   console.log('Bundling components')
