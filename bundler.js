@@ -22,7 +22,7 @@ module.exports = function bundle (Components, out, config) {
       import Vue from 'vue/dist/vue.js';\n
       window.Vue = Vue;\n
 
-      import VueWrapper from '${path.join(__dirname, VUE_WRAPPER).replace(/\\/g, "/")}';\n
+      import VueWrapper from '${path.relative(absoluteOut, path.join(__dirname, VUE_WRAPPER)).replace(/\\/g, "/")}';\n
       window.VueWrapper = VueWrapper;\n
     `
   }
@@ -67,7 +67,10 @@ module.exports = function bundle (Components, out, config) {
       `${type}Components['${displayName}'] = ${name};`,
     ].join('\n')
   }).join('\n\n')
-
+  
+  console.log(__dirname);
+  console.log(VUE_WRAPPER);
+  
   console.log('Generating entry file for "components" plugin')
   fs.writeFileSync(entry, entryFile)
   console.log('Bundling components')
