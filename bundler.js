@@ -60,7 +60,8 @@ module.exports = function bundle (Components, out, config) {
   
   const entryFile = init + Components.map((c, i) => {
     const { displayName, filePath, type } = c.component
-    const relativePath = path.relative(absoluteOut, filePath).replace('\\','/')
+    var relativePath = path.relative(absoluteOut, filePath).replace('\\','/')
+    relativePath = relativePath.replace(/\\/g, "/");
     console.log("REACHED")
     console.log(relativePath)
     const name = `Component${i}`
