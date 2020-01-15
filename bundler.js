@@ -62,7 +62,7 @@ module.exports = function bundle (Components, out, config) {
     const { displayName, filePath, type } = c.component
     const relativePath = path.relative(absoluteOut, filePath)
     const name = `Component${i}`
-    console.log('FILE PATH: ' + filePath)
+    console.log('FILE PATH: ' + filePath.replace(/\\/g, "/"))
     return [
       `import ${name} from '${filePath.replace(/\\/g, "/")}';`,
       `${type}Components['${displayName}'] = ${name};`,
@@ -70,9 +70,7 @@ module.exports = function bundle (Components, out, config) {
   }).join('\n\n')
   
   console.log('REACHED')
-  console.log(__dirname)
-  console.log(VUE_WRAPPER)
-  console.log(path.join(__dirname, VUE_WRAPPER))
+  console.log(path.join(__dirname, VUE_WRAPPER).replace(/\\/g, "/"))
   console.log('Generating entry file for "components" plugin')
   fs.writeFileSync(entry, entryFile)
   console.log('Bundling components')
