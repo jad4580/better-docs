@@ -75,7 +75,7 @@ module.exports = function bundle (Components, out, config) {
   fs.writeFileSync(entry, entryFile)
   console.log('Bundling components')
   const outDist = path.join(out, 'build')
-  const cmd = `parcel --no-source-maps build ${entry} --out-dir ${outDist}`
+  const cmd = `parcel build ${entry} --out-dir ${outDist}`
   console.log(`running: ${cmd}`)
   try {
     execSync(cmd)
